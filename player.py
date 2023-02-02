@@ -51,9 +51,9 @@ class Player:
             self.y += dy
 
     def draw(self):
-        pygame.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
-                        (self.x *100 + settings.WIDTH * math.cos(self.angle),
-                        self.y * 100 + settings.WIDTH * math.sin(self.angle)), 2)
+        # pygame.draw.line(self.game.screen, 'yellow', (self.x * 100, self.y * 100),
+        #                (self.x *100 + settings.WIDTH * math.cos(self.angle),
+        #                self.y * 100 + settings.WIDTH * math.sin(self.angle)), 2)
 
         pygame.draw.circle(self.game.screen, 'green', (self.x * 100, self.y * 100), 15)
 

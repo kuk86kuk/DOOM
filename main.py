@@ -3,6 +3,7 @@ import sys
 import settings
 import map
 import player
+import raycasting
 
 class Game:
     def __init__(self):
@@ -16,11 +17,13 @@ class Game:
     def new_game(self):
         self.map_ = map.Map(self)
         self.player_ = player.Player(self)
+        self.raycasting_ = raycasting.RayCating(self)
 
 
     # Метод класса который обновлает 
     def update(self):
         self.player_.update()
+        self.raycasting_.update()
         pygame.display.flip()
         self.delta_time = self.clock.tick(settings.FPS)
         pygame.display.set_caption(f'{self.clock.get_fps() :.1f}')
