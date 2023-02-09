@@ -4,10 +4,11 @@ import settings
 import map
 import player
 import raycasting
-
+import object_renderer
 class Game:
     def __init__(self):
         pygame.init()
+        pygame.mouse.set_visible(False)
         self.screen = pygame.display.set_mode(settings.RES)
         self.clock = pygame.time.Clock()
         self.delta_time = 1
@@ -17,6 +18,7 @@ class Game:
     def new_game(self):
         self.map_ = map.Map(self)
         self.player_ = player.Player(self)
+        self.object_renderer_ = object_renderer.ObjectRenderer(self)
         self.raycasting_ = raycasting.RayCating(self)
 
 
@@ -31,9 +33,10 @@ class Game:
 
     # Метод класса который отрисовавет экран
     def draw(self):
-        self.screen.fill('black')
-        self.map_.draw()
-        self.player_.draw()
+        #self.screen.fill('black')
+        self.object_renderer_.draw()
+        #self.map_.draw()
+        #self.player_.draw()
 
 
     # Метод класса который отслеживает события
